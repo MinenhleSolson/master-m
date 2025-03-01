@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Instagram, Facebook, Send, Loader2, XCircle, CheckCircle } from 'lucide-react';
+import { Send, Loader2, XCircle, CheckCircle } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { db } from '@/lib/firebase'; // Import Firebase
 import { doc, getDoc } from 'firebase/firestore';
@@ -52,9 +52,9 @@ const BookingPage: React.FC = () => {
         } else {
           setError('Contact information not found.'); // Specific error message
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error('Error fetching home data:', error);
-        setError('Failed to load contact information: ' + error.message);
+        setError('Failed to load contact information: ' + error);
       } finally {
           setPageLoading(false);
       }
@@ -116,8 +116,8 @@ const BookingPage: React.FC = () => {
         const data = await response.json();
         setError(data.error || 'An unexpected error occurred.');
       }
-    } catch (error: any) {
-      setError('An unexpected error occurred: ' + error.message);
+    } catch (error) {
+      setError('An unexpected error occurred: ' + error);
     } finally {
       setLoading(false);
     }

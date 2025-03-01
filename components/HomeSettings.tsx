@@ -72,9 +72,9 @@ const HomeSettings: React.FC = () => {
           await setDoc(docRef, initialState);
           setFormData(initialState);
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error('Error fetching home data:', error);
-        setError('Failed to load home settings. ' + error.message);
+        setError('Failed to load home settings. ' + error);
       } finally {
         setLoading(false);
       }
@@ -131,7 +131,7 @@ const HomeSettings: React.FC = () => {
       const docRef = doc(db, 'home', 'settings'); // Use the same fixed document ID
 
       // Create a new object for updating Firestore
-      const updateData: { [key: string]: any } = {
+      const updateData: { [key: string] : string } = {
         latestSongTitle: formData.latestSongTitle,
         latestSongDescription: formData.latestSongDescription,
         recordLabel: formData.recordLabel,
@@ -149,9 +149,9 @@ const HomeSettings: React.FC = () => {
       await updateDoc(docRef, updateData); // Update using the new object
       setSuccess(true);
 
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error updating home data:', error);
-      setError('Failed to update home settings. ' + error.message);
+      setError('Failed to update home settings. ' + error);
     } finally {
       setLoading(false);
     }

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Loader2 } from "lucide-react";
+import { Menu, Loader2 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { db } from '@/lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
@@ -43,9 +43,9 @@ const Navbar = () => {
         } else {
           setError('No social links found.');
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error('Error fetching social links:', error);
-        setError('Failed to load social links: ' + error.message);
+        setError('Failed to load social links: ' + error);
       } finally {
           setLoading(false);
       }

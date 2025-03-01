@@ -42,9 +42,9 @@ const Footer = () => {
         } else {
           setError('No data found.');
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error('Error fetching data:', error);
-        setError('Failed to load data: ' + error.message);
+        setError('Failed to load data: ' + error);
       } finally {
         setLoading(false);
       }

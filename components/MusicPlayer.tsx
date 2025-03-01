@@ -53,9 +53,9 @@ const MusicPlayer = () => {
                 });
                 setSongs(songsData);
                 setDurations(new Array(songsData.length).fill(0));  // Initialize durations
-            } catch (error: any) {
+            } catch (error) {
                 console.error("Error fetching songs:", error);
-                setError("Failed to load songs: " + error.message); // Set error message
+                setError("Failed to load songs: " + error); // Set error message
 
             } finally {
                 setLoading(false);

@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Header from '@/components/Header'
 import MusicDisplay from '@/components/MusicDisplay'
 import Footer from '@/components/Footer'

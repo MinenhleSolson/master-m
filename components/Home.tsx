@@ -3,9 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { db } from "@/lib/firebase"; // Import your Firebase configuration
 import { doc, getDoc } from "firebase/firestore";
-import Header from '@/components/Header';
-import Image from 'next/image';
-import { Facebook, Youtube, Instagram, Loader2 } from 'lucide-react';
+
+import { Loader2 } from 'lucide-react';
 import MusicPlayer from '@/components/MusicPlayer';
 
 interface HomeData { // Interface from HomeSettings
@@ -46,9 +45,9 @@ function Home() {
         } else {
           setError('No home data found.');
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error('Error fetching home data:', error);
-        setError('Failed to load home data: ' + error.message);
+        setError('Failed to load home data: ' + error);
       } finally {
           setLoading(false);
       }
